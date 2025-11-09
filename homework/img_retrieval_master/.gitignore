@@ -1,0 +1,26 @@
+# Node.js
+node_modules/
+npm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+
+# 数据与模型文件
+data/dataset/
+data/uploads/
+data/artifacts/
+
+# 临时文件
+*.tmp
+*.swp
+*.swo
+Thumbs.db
+.DS_Store
+
+# 日志
+logs/
+*.log
+

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图像检索系统</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero-content">
+        <h1>开放数据集图像检索系统</h1>
+        <p>
+          使用预训练视觉模型对图像进行特征编码，通过相似度检索快速定位相似图片。支持在线上传查询图像，并展示最相近的结果。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#search">开始检索</a>
+          <a class="btn" href="#gallery">浏览数据集</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="insight" class="card">
+        <h2>数据与模型概览</h2>
+        <div class="insight-grid">
+          <div class="insight-item">
+            <span class="label">图像数量</span>
+            <span id="total-images" class="value">--</span>
+          </div>
+          <div class="insight-item">
+            <span class="label">特征维度</span>
+            <span id="embedding-dim" class="value">--</span>
+          </div>
+          <div class="insight-item">
+            <span class="label">构建时间</span>
+            <span id="generated-at" class="value">--</span>
+          </div>
+          <div class="insight-item">
+            <span class="label">推理设备</span>
+            <span id="device" class="value">--</span>
+          </div>
+        </div>
+        <p class="insight-note">
+          首次启动时若未生成索引，服务会自动下载公开花卉图像数据集并构建索引。
+        </p>
+      </section>
+
+      <section id="search" class="card">
+        <h2>上传图片进行检索</h2>
+        <form id="search-form">
+          <label class="file-input">
+            <input
+              type="file"
+              name="image"
+              id="image-input"
+              accept="image/*"
+              required
+            />
+            <span id="file-label">选择或拖拽一张图片</span>
+          </label>
+          <div class="controls">
+            <label for="topk">返回数量：</label>
+            <input
+              type="number"
+              id="topk"
+              name="topK"
+              value="12"
+              min="1"
+              max="30"
+            />
+            <button type="submit" class="btn btn-primary">开始检索</button>
+          </div>
+        </form>
+        <div id="search-status" class="status"></div>
+        <div id="results" class="grid"></div>
+      </section>
+
+      <section id="gallery" class="card">
+        <h2>数据集样本</h2>
+        <p id="gallery-info">加载中...</p>
+        <div id="gallery-grid" class="grid preview-grid"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 图像检索系统 | Node.js + Python + PyTorch</p>
+    </footer>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

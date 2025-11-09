@@ -18,7 +18,7 @@
     "nodejs",
     "python"
   ],
-  "author": "研究生图像检索项目",
+  "author": "钟林林",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
